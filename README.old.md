@@ -37,10 +37,7 @@ import './App.css'
 
 class MyList extends Component {
   render() {
-    return (
-      <>
-      </>
-    )
+    return ()
   }
 }
 
@@ -56,17 +53,14 @@ Change the name of the component where it's rendered in index.js! You'll also ha
 
 ```js
 import React from 'react';
-import ReactDOM from 'react-dom/client';
-import './index.css';
+import ReactDOM from 'react-dom';
 import MyList from './MyList';
-import reportWebVitals from './reportWebVitals';
+import './index.css';
 
-const root = ReactDOM.createRoot(document.getElementById('root'));
-root.render(
-  <React.StrictMode>
-    <MyList />
-  </React.StrictMode>
-);
+ReactDOM.render(
+  <MyList />,
+  document.getElementById('root')
+)
 
 ```
 
@@ -80,7 +74,7 @@ This looks like:
 import React, { Component } from 'react'
 import './App.css'
 
-export default class MyList extends Component {
+class MyList extends Component {
   render() {
     return (
       <div>
@@ -93,6 +87,7 @@ export default class MyList extends Component {
   }
 }
 
+export default MyList
 ```
 
 Now, our webpage displays an empty list.
@@ -101,7 +96,7 @@ We've learned that we should make new files for each component and that differen
 
 Let's make a component for `ListItem`s. This component can simply render  `<li>Make the list!</li>` so that we are starting with something in this list.
 
-* Remember to use an `export` statement to make the code in this file available elsewhere in our application. You can do this at the end of the new file, or before the `class ListItem extends Component`
+* Remember to use an `export` statement at the end of the new file to make the code in this file available elsewhere in our application.
 
 * Don't forget to import your `ListItem` component into `MyList.js`.  Then, include the component in what `MyList` renders with `<ListItem />` under the existing header (in place of the existing list item)!
 
@@ -110,11 +105,13 @@ Let's make a component for `ListItem`s. This component can simply render  `<li>M
 import React, { Component } from 'react'
 import './App.css'
 
-export default class ListItem extends Component {
+class ListItem extends Component {
   render() {
     return(<li>Make the list!</li>)
   }
 }
+
+export default ListItem
 ```
 
 **MyList.js**
@@ -123,7 +120,7 @@ import React, { Component } from 'react'
 import './App.css'
 import ListItem from './ListItem'
 
-export default class MyList extends Component {
+class MyList extends Component {
   render() {
     return(<div>
       <h1>Things I should stop procrastinating:</h1>
@@ -133,6 +130,8 @@ export default class MyList extends Component {
     </div>)
   }
 }
+
+export default MyList
 ```
 
 At this point, our app looks like this:
