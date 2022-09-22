@@ -8,7 +8,9 @@ export default class MyList extends Component {
       <div>
         <h1>This I should stop procrastinating: </h1>
         <ul>
-          <ListItem />
+          <ListItem 
+            task="buy icecream"
+          />
         </ul>
       </div>
     )
